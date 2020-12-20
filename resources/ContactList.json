@@ -1,0 +1,94 @@
+{
+    "contacts": [
+        {
+            "name": "Contact1",
+            "username": "contact1",
+            "status": "status1",
+            "profile_pic": "pic1.jpeg"
+        },
+        {
+            "name": "Contact2",
+            "username": "contact2",
+            "status": "status2",
+            "profile_pic": "pic2.jpeg"
+        },
+        {
+            "name": "Contact3",
+            "username": "contact3",
+            "status": "status3",
+            "profile_pic": "pic3.jpeg"
+        },
+        {
+            "name": "Contact4",
+            "username": "contact4",
+            "status": "status4",
+            "profile_pic": "pic4.jpeg"
+        },
+        {
+            "name": "Contact5",
+            "username": "contact5",
+            "status": "status5",
+            "profile_pic": "pic5.jpeg"
+        },
+        {
+            "name": "Contact6",
+            "username": "contact6",
+            "status": "status6",
+            "profile_pic": "pic6.jpeg"
+        },
+        {
+            "name": "Contact7",
+            "username": "contact7",
+            "status": "status7",
+            "profile_pic": "pic7.jpeg"
+        },
+        {
+            "name": "Contact8",
+            "username": "contact8",
+            "status": "status8",
+            "profile_pic": "pic8.jpeg"
+        },
+        {
+            "name": "Contact9",
+            "username": "contact9",
+            "status": "status9",
+            "profile_pic": "pic9.jpeg"
+        },
+        {
+            "name": "Contact10",
+            "username": "contact10",
+            "status": "status10",
+            "profile_pic": "pic10.jpeg"
+        },
+        {
+            "name": "Contact11",
+            "username": "contact11",
+            "status": "status11",
+            "profile_pic": "pic11.jpeg"
+        },
+        {
+            "name": "Contact12",
+            "username": "contact12",
+            "status": "status12",
+            "profile_pic": "pic12.jpeg"
+        },
+        {
+            "name": "Contact13",
+            "username": "contact13",
+            "status": "status13",
+            "profile_pic": "pic13.jpeg"
+        },
+        {
+            "name": "Contact14",
+            "username": "contact14",
+            "status": "status14",
+            "profile_pic": "pic14.jpeg"
+        },
+        {
+            "name": "Contact15",
+            "username": "contact15",
+            "status": "status15",
+            "profile_pic": "pic15.jpeg"
+        }
+    ]
+}

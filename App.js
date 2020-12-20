@@ -1,21 +1,114 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
+import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import ChatScreen from './screens/ChatScreen.js'
+import ConversationsScreen from './screens/ConversationsScreen.js';
+import ContactsScreen from './screens/ContactsScreen.js';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+
+export default class App extends React.Component {
+  state = {
+    messages: [],
+  }
+
+  render() {
+
+    const Stack = createStackNavigator();
+    const chatNavigation = ({ navigation }) => {
+      navigation.state = {
+        username: "Username",
+        lastSeen: "last seen at 09:05"
+      }
+      return ({
+        headerStyle: {
+          backgroundColor: '#322f3d',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          opacity: 0
+        },
+        headerLeft: () => (
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Conversations')}>
+              <MaterialIcons
+                name='arrow-back'
+                color={'#4b5d67'}
+                size={25}
+              />
+              <MaterialIcons
+                name='account-circle'
+                color={'#4b5d67'}
+                size={40}
+              />
+            </TouchableOpacity>
+            <View style={{ justifyContent: 'center', paddingStart: 5}}>
+              <Text style={{ color: 'white', fontSize: 20 }}>{navigation.state.username}</Text>
+              <Text style={{ color: 'white' }}>{navigation.state.lastSeen}</Text>
+            </View>
+          </View>
+
+        ),
+      });
+    }
+    const conversationsNavigation = ({ navigation }) => {
+      return ({
+        headerStyle: {
+          backgroundColor: '#322f3d',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      });
+    }
+    return (
+      <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.keyboardAvoidingView}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Conversations" component={ConversationsScreen} options={conversationsNavigation} />
+            <Stack.Screen name="Contacts" component={ContactsScreen} options={conversationsNavigation} />
+            <Stack.Screen name="Chat" component={ChatScreen} options={chatNavigation} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </KeyboardAvoidingView>
+
+    );
+
+  }
 }
 
 const styles = StyleSheet.create({
+  keyboardAvoidingView: {
+    flex: 1
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    flexDirection: 'column',
+    backgroundColor: '#4b5d67',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  messageList: {
+    height: '84%',
+    width: '100%',
+    flexGrow: 1
+  },
+  messageEntry: {
+    height: '8%',
+    minHeight: 75,
+    width: '100%'
+  },
+  navigation: {
+    height: '8%',
+    minHeight: 75,
+    width: '100%'
+  },
+  backButton: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 });
