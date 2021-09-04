@@ -12,7 +12,7 @@ export default class ContactList extends React.Component {
                 {
                     Contacts.contacts.map((element, index) => {
                         return (
-                            <View style={{ flex: 1 }}>
+                            <View key={index} style={{ flex: 1 }}>
                                 <TouchableOpacity key={index} style={{ minWidth: '100%', height: '100%' }} onPress={() => {
                                     this.props.navigation.navigate('Chat', element)
                                 }}>

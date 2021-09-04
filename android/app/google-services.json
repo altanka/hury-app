@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "435396463930",
+    "project_id": "hury-ca43b",
+    "storage_bucket": "hury-ca43b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435396463930:android:70a6d3524bcebf9b73d403",
+        "android_client_info": {
+          "package_name": "com.hury"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435396463930-9rqfl5de9htpp4i3vl1akt40bjttati3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hury",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "435396463930-9fqatd03qtjeh4mpjh16kgor9es7vij5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2ctUIygVaHD4qVnYAkS9kfCA2aqlhPSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435396463930-9fqatd03qtjeh4mpjh16kgor9es7vij5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
