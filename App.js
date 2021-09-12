@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, KeyboardAvoidingView, Platform, TouchableOpacity, AppRegistry } from 'react-native';
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import { NavigationContainer } from '@react-navigation/native';
-import messaging from '@react-native-firebase/messaging';
 import { createStackNavigator } from '@react-navigation/stack';
 import ChatScreen from './screens/ChatScreen.js'
 import ConversationsScreen from './screens/ConversationsScreen.js';
+import LoginScreen from './screens/LoginScreen.js';
 import ContactsScreen from './screens/ContactsScreen.js';
 
 
@@ -14,18 +14,6 @@ export default class App extends React.Component {
     messages: [],
   }
 
-  componentDidMount() {
-    messaging()
-      .subscribeToTopic('weather')
-      .then(() => console.log('Subscribed to topic!'));
-    messaging().setBackgroundMessageHandler(async remoteMessage => {
-      console.log('Message handled in the background!', remoteMessage);
-    });
-    const unsubscribe = messaging().onMessage(async remoteMessage => {
-      console.log('A new FCM message arrived!', JSON.stringify(remoteMessage));
-    });
-    return unsubscribe;
-  }
 
   render() {
 
@@ -67,8 +55,8 @@ export default class App extends React.Component {
         ),
       });
     }
-    const conversationsNavigation = ({ navigation }) => {
-      return ({
+    const conversationsNavigation = (isMain) => {
+      let options = {
         headerStyle: {
           backgroundColor: '#322f3d',
         },
@@ -76,14 +64,20 @@ export default class App extends React.Component {
         headerTitleStyle: {
           fontWeight: 'bold',
         },
-      });
+      }
+      if (isMain) {
+        options.headerLeft = null
+      }
+      return options;
     }
+
     return (
       <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style={styles.keyboardAvoidingView}>
         <NavigationContainer>
           <Stack.Navigator>
-            <Stack.Screen name="Conversations" component={ConversationsScreen} options={conversationsNavigation} />
-            <Stack.Screen name="Contacts" component={ContactsScreen} options={conversationsNavigation} />
+            <Stack.Screen name="Login" component={LoginScreen} options={() => conversationsNavigation(true)} />
+            <Stack.Screen name="Conversations" component={ConversationsScreen} options={() => conversationsNavigation(true)} />
+            <Stack.Screen name="Contacts" component={ContactsScreen} options={() => conversationsNavigation(false)} />
             <Stack.Screen name="Chat" component={ChatScreen} options={chatNavigation} />
           </Stack.Navigator>
         </NavigationContainer>

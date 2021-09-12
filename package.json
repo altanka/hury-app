@@ -8,8 +8,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.7",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-firebase/app": "^10.8.1",
+    "@react-native-firebase/auth": "^12.7.5",
     "@react-native-firebase/messaging": "^10.8.1",
     "@react-navigation/native": "^5.7.2",
     "@react-navigation/stack": "^5.8.0",
@@ -22,6 +24,7 @@
     "expo-updates": "~0.2.10",
     "react": "~16.11.0",
     "react-dom": "~16.11.0",
+    "react-infinite-scroll-reverse": "^2.0.2",
     "react-native": "~0.62.2",
     "react-native-background-task": "^0.2.1",
     "react-native-floating-action": "^1.21.0",
