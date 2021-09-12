@@ -1,19 +1,34 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, TextInput} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput } from 'react-native';
 import { FontAwesome, MaterialIcons, MaterialCommunityIcons } from '@expo/vector-icons'
 import Constants from 'expo-constants';
 
 export default class MessageEntry extends React.Component {
     state = {
-        message: this.props.message,
+        message: "",
+    }
+
+    messageInputRef = null
+
+    sendMessage = () => {
+        if (this.state.message.length > 0) {
+            this.props.onSend(this.state.message)
+            this.messageInputRef.clear()
+        }
     }
 
     render() {
         return (
 
             <View style={styles.container} >
-                <TextInput style={styles.textInput} placeholder="Type a message..." placeholderTextColor='#4b5d67' />
-                <TouchableOpacity style={styles.sendButton}>
+                <TextInput
+                    ref={input => { this.messageInputRef = input }}
+                    style={styles.textInput}
+                    placeholder="Type a message..."
+                    placeholderTextColor='#4b5d67'
+                    onChangeText={(value) => this.setState({ message: value })}
+                />
+                <TouchableOpacity style={styles.sendButton} onPressOut={() => this.sendMessage()}>
                     <MaterialIcons
                         name='send'
                         color={'#4b5d67'}
